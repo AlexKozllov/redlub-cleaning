@@ -1,7 +1,11 @@
 import { createAction } from "@reduxjs/toolkit";
 
-const payMethodsRequest = createAction("mainPage/payMethodsRequest");
+const menuBattonCliked = createAction("mainPage/menuBattonCliked");
 const payMethodsSuccess = createAction("mainPage/payMethodsSuccess");
 const payMethodsError = createAction("mainPage/payMethodsError");
 
-export { payMethodsRequest, payMethodsSuccess, payMethodsError };
+// const payMethodsRequest = createAction("mainPage/payMethodsRequest");
+// const payMethodsSuccess = createAction("mainPage/payMethodsSuccess");
+// const payMethodsError = createAction("mainPage/payMethodsError");
+
+export { menuBattonCliked, payMethodsSuccess, payMethodsError };

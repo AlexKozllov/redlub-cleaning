@@ -18,9 +18,30 @@ function App() {
                 component={lazy(() => import("./pages/mainPage/MainPage"))}
               />
               <Route
-                path={routers.info}
+                path={routers.afterRenovation}
                 exact
-                component={lazy(() => import("./pages/infoPage/InfoPage"))}
+                component={lazy(() =>
+                  import("./pages//aftrRenovation/Afterrenovation")
+                )}
+              />
+              <Route
+                path={routers.spriningCleaning}
+                exact
+                component={lazy(() =>
+                  import("./pages/spriningCleaning/SpsiningCleaning")
+                )}
+              />
+              <Route
+                path={routers.regularCleaning}
+                exact
+                component={lazy(() =>
+                  import("./pages/regularCleaning/RegularCleaning")
+                )}
+              />
+              <Route
+                path={routers.eyeWash}
+                exact
+                component={lazy(() => import("./pages/eyeWash/EyeWash"))}
               />
             </Switch>
           </Suspense>

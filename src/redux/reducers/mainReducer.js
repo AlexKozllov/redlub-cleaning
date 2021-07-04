@@ -1,30 +1,26 @@
 import { combineReducers, createReducer } from "@reduxjs/toolkit";
 import {
-  payMethodsRequest,
+  menuBattonCliked,
   payMethodsSuccess,
   payMethodsError,
 } from "../actions/mainAction";
 
-const initialCalculate = {
-  base: "",
-  amount: "",
-  invoicePayMethod: 3,
-  withdrawPayMethod: 6,
-};
+const isOpenMenu = createReducer(false, {
+  [menuBattonCliked]: (state, { payload }) => !state,
+});
 
 const loading = createReducer(false, {
-  [payMethodsRequest]: () => true,
+  [menuBattonCliked]: () => true,
   [payMethodsSuccess]: () => false,
   [payMethodsError]: () => false,
 });
-
 const error = createReducer(null, {
   [payMethodsError]: (_, { payload }) => payload,
-  [payMethodsRequest]: () => "",
   [payMethodsSuccess]: () => "",
 });
 
 const mainReduser = combineReducers({
+  isOpenMenu,
   error,
   loading,
 });

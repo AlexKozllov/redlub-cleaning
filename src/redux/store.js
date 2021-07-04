@@ -13,7 +13,7 @@ import {
 import { mainReduser } from "./reducers/mainReducer";
 
 const rootReducer = combineReducers({
-  payMethods: mainReduser,
+  serviceValues: mainReduser,
 });
 
 const store = configureStore({

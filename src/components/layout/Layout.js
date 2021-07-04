@@ -1,11 +1,14 @@
 import React from "react";
+import Header from "../header/Header";
 
 import s from "./Layout.module.scss";
 
 const Layout = ({ children }) => {
   return (
     <div className={s.wrapper}>
-      <header>{/* <Header /> */}</header>
+      <header>
+        <Header />
+      </header>
 
       <main className={s.container}> {children}</main>
       <footer>{/* <Footer /> */}</footer>
