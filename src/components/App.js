@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Route, Switch } from "react-router";
 import routers from "../routers/routers";
-
 import "./App.scss";
 import Layout from "./layout/Layout";
 import Loader from "./loader/Loader";
