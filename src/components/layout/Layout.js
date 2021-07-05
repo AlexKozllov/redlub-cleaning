@@ -5,12 +5,13 @@ import s from "./Layout.module.scss";
 
 const Layout = ({ children }) => {
   return (
-    <div className={s.wrapper}>
+    <div>
       <header>
         <Header />
       </header>
-
-      <main className={s.container}> {children}</main>
+      <div className={s.wrapper}>
+        <main className={s.container}> {children}</main>
+      </div>
       <footer>{/* <Footer /> */}</footer>
     </div>
   );
