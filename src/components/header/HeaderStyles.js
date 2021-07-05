@@ -1,27 +1,44 @@
 import styled from "styled-components";
 
 const HeaderStyles = styled.div`
-  margin: 10px;
+  /* margin: 10px; */
   width: 100%;
-  /* height: 10px; */
-  position: fixed;
+  height: 70px;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
-  .navigation-box {
-    width: 73%;
-    margin-top: 25px;
-    margin-right: 45px;
-    position: absolute;
-    right: 0;
-    top: 0;
+  .logo-container {
+    width: 248px;
+    height: 31px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    @media (max-width: 1085px) {
+    margin-left: 54px;
+  }
+
+  .logo {
+    width: 99px;
+    height: 25px;
+
+    fill: #404040;
+  }
+
+  .navigation-box {
+    width: 73%;
+    /* margin-top: 25px; */
+    margin-right: 45px;
+    position: absolute;
+    right: 0;
+    /* top: 0; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 1293px) {
       /* width: 26%; */
       width: 250px;
     }

@@ -1,5 +1,5 @@
-const payMethods = (state) => {
-  return state.payMethods.methods;
+const homeOrOffise = (state) => {
+  return state.serviceValues.homeOrOffise;
 };
 
-export { payMethods };
+export { homeOrOffise };
