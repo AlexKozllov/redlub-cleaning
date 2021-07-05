@@ -4,7 +4,7 @@ const CheckBoxStyles = styled.div`
   width: 131px;
   height: 37px;
   background: #fff;
-  background: red;
+  background: #fff;
   border-radius: 18px;
   display: flex;
   flex-direction: row;
@@ -30,7 +30,7 @@ const CheckBoxStyles = styled.div`
     align-items: center;
   }
   .content {
-    font-family: TT Travels;
+    font-family: "TT Travels";
     font-size: 14px;
     font-style: normal;
     font-weight: 500;

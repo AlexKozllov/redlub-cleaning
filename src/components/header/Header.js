@@ -2,9 +2,10 @@ import React from "react";
 import Navigation from "../navigation/Navigation";
 import Media from "react-media";
 import MenuBatton from "../menuBatton/MenuBatton";
-import { HeaderStyles, HeaderWrapper } from "./HeaderStyles";
+import { HeaderStyles } from "./HeaderStyles";
 import sprite from "../../sprites/sprite.svg";
 import CheckBox from "../checkBox/CheckBox";
+import { Link } from "react-router-dom";
 // import rectandle47 from ".././images/Rectandle47.png";
 
 const Header = () => {
@@ -12,9 +13,11 @@ const Header = () => {
     <>
       <HeaderStyles>
         <div className="logo-container">
-          <svg className="logo">
-            <use href={sprite + "#Logo"} />
-          </svg>
+          <Link to="/">
+            <svg className="logo">
+              <use href={sprite + "#Logo"} />
+            </svg>
+          </Link>
           <CheckBox />
         </div>
         <div className="navigation-box">

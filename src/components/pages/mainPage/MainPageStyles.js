@@ -1,12 +1,20 @@
 import styled from "styled-components";
 import rectangle47 from "../../../images/rectangle47.png";
+
 const MainPageWrapper = styled.div`
   width: 100%;
-  height: 800px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+  .heade_wrapper {
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .header-picture {
     width: 50%;
     height: 100%;
@@ -45,7 +53,7 @@ const MainPageWrapper = styled.div`
     font-weight: 400;
     line-height: 25px;
     letter-spacing: 0px;
-    text-align: 
+  }
 `;
 
 export { MainPageWrapper };
