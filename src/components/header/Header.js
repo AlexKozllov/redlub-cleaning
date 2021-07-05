@@ -26,7 +26,7 @@ const Header = () => {
           <MenuBatton />
         </div>
       </HeaderStyles>
-      <HeaderWrapper className="heade_wrapper">
+      {/* <HeaderWrapper className="heade_wrapper">
         <div className="header-picture"></div>
         <div className="header-content">
           <div className="header-wrapper">
@@ -37,7 +37,7 @@ const Header = () => {
             </p>
           </div>
         </div>
-      </HeaderWrapper>
+      </HeaderWrapper> */}
     </>
   );
 };
