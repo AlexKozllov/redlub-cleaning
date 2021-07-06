@@ -10,6 +10,9 @@ const HeaderStyles = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background: ${({ offset }) => (offset >= 250 ? "#fff" : "transperent")};
+  box-shadow: ${({ offset }) =>
+    offset >= 250 ? "-1px 3px 15px 0px rgba(34, 60, 80, 0.2)" : "none"};
 
   .logo-container {
     width: 248px;

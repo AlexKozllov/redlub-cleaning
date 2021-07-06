@@ -1,5 +1,9 @@
 import { combineReducers, createReducer } from "@reduxjs/toolkit";
-import { menuBattonCliked, checkBoxCliked } from "../actions/mainAction";
+import {
+  menuBattonCliked,
+  checkBoxCliked,
+  hoverOnBox,
+} from "../actions/mainAction";
 
 const isOpenMenu = createReducer(false, {
   [menuBattonCliked]: (state, { payload }) => !state,
@@ -15,6 +19,12 @@ const homeOrOffise = createReducer("home", {
   },
 });
 
+const isHover = createReducer(false, {
+  [hoverOnBox]: (state, { payload }) => payload,
+  // [payMethodsSuccess]: () => false,
+  // [payMethodsError]: () => false,
+});
+
 const loading = createReducer(false, {
   [menuBattonCliked]: () => true,
   // [payMethodsSuccess]: () => false,
@@ -26,6 +36,7 @@ const error = createReducer(null, {
 });
 
 const mainReduser = combineReducers({
+  isHover,
   isOpenMenu,
   homeOrOffise,
   error,

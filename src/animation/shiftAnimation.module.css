@@ -6,6 +6,7 @@
   opacity: 1;
   transition: all 2500ms linear;
 }
+
 .exit {
   opacity: 1;
 }
@@ -14,3 +15,14 @@
   opacity: 0;
   transition: all 250ms linear;
 }
+
+/* 
+const scrollHandler=(e)=> {
+  console.log(`object`, object)
+}
+
+onScroll= {
+  scrollHandler
+}
+when={this.state.show}
+ */

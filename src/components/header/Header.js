@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from "../navigation/Navigation";
 import Media from "react-media";
 import MenuBatton from "../menuBatton/MenuBatton";
@@ -9,9 +9,17 @@ import { Link } from "react-router-dom";
 // import rectandle47 from ".././images/Rectandle47.png";
 
 const Header = () => {
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    window.onscroll = () => {
+      setOffset(window.pageYOffset);
+    };
+  }, []);
+
   return (
     <>
-      <HeaderStyles>
+      <HeaderStyles offset={offset}>
         <div className="logo-container">
           <Link to="/">
             <svg className="logo">
