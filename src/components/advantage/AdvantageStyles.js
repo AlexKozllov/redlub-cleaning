@@ -40,6 +40,8 @@ const AdvantageStyles = styled.section`
     line-height: 22px;
     letter-spacing: 0px;
     text-align: left;
+    color: #fff;
+    border-radius: 8px;
   }
 `;
 
@@ -49,6 +51,7 @@ const ItemsCardStyles = styled.li`
   background: #f3f6fb;
   list-style: none;
   position: relative;
+  border-radius: 8px;
   background-image: url(${({ img }) => img});
   background-repeat: no-repeat;
   background-position: bottom;

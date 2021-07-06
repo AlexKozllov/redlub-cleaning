@@ -1,11 +1,13 @@
 import React from "react";
 import Advantage from "../../advantage/Advantage";
+import HowDoWeClean from "../../howDoWeClean/HowDoWeClean";
+
 import { MainPageWrapper } from "./MainPageStyles";
 
 const MainPage = () => {
   return (
     <MainPageWrapper>
-      <div className="heade_wrapper">
+      <div className="heade-wrapper">
         <div className="header-picture"></div>
         <div className="header-content">
           <div className="header-wrapper">
@@ -18,6 +20,7 @@ const MainPage = () => {
         </div>
       </div>
       <Advantage />
+      <HowDoWeClean />
     </MainPageWrapper>
   );
 };

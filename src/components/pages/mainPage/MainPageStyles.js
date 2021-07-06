@@ -6,7 +6,7 @@ const MainPageWrapper = styled.div`
   position: absolute;
   top: 0;
   margin: 0 auto;
-  .heade_wrapper {
+  .heade-wrapper {
     width: 100%;
     height: 800px;
     display: flex;
