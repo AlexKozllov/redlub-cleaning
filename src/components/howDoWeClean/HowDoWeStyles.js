@@ -76,7 +76,7 @@ const RoomSlider = styled.div`
   align-items: center;
 
   .slider-wrapper {
-    width: 76%;
+    width: 100%;
   }
   .myDiv {
     width: 50px;
@@ -91,14 +91,31 @@ const RoomSlider = styled.div`
     background: blue;
     z-index: 100;
   }
-  /* .img-wrapper {
-    max-width: 1065px;
-    width: 76%;
+
+  .slick-dots {
+    background-color: blue;
+    color: #fff;
+    width: 24%;
     height: 100%;
-    position: relative;
-    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  .howDoWeClean-img {
+  .slider--position {
+    width: 100%;
+    & .img-wrapper {
+      /* max-width: 1065px; */
+      /* width: 76%; */
+      margin-left: 24%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    /* & .howDoWeClean-img {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -107,9 +124,11 @@ const RoomSlider = styled.div`
     transform: translate(-50%, -50%);
     object-fit: cover;
   } */
- 
+    /* margin-left: 50px; */
   }
-  
+  /* .slick-thumb {
+ 
+  } */
 `;
 
 export { HowDoWeStyles, RoomSlider, ItemStyles };

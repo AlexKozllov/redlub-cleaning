@@ -15,12 +15,14 @@ const HowDoWeClean = () => {
 
   const settings = {
     customPaging: function (i) {
-      return <a>{i}</a>;
+      return <a>Кухня</a>;
     },
     arrows: false,
     dots: true,
     dotsClass: "slick-dots slick-thumb",
+    className: "slider--position",
     infinite: true,
+    // fade: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -63,7 +65,7 @@ const HowDoWeClean = () => {
           </p>
         </div>
         <RoomSlider>
-          <div className="roomBar">asdfsdf</div>
+          {/* <div className="roomBar">asdfsdf</div> */}
           <div className="slider-wrapper">
             <Slider {...settings}>
               <Item />
