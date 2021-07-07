@@ -1,5 +1,5 @@
 .enter {
-  opacity: 0;
+  opacity: 1;
   transform: scale(0.9);
 }
 
@@ -15,7 +15,7 @@
 }
 
 .exitActive {
-  opacity: 0;
+  opacity: 1;
   transform: scale(0.9);
   transition: all 500ms linear 1;
 }

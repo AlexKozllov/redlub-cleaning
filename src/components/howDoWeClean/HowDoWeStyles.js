@@ -4,10 +4,6 @@ const HowDoWeStyles = styled.section`
   width: 100%;
   height: 800px;
   margin-top: 194px;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center; */
 
   .howDoWeClean-container {
     height: 795px;
@@ -17,7 +13,6 @@ const HowDoWeStyles = styled.section`
 
   .howDoWeClean-wrapper {
     width: 1094px;
-    /* width: 100%; */
     height: 113px;
     display: flex;
     flex-direction: row;
@@ -47,25 +42,6 @@ const HowDoWeStyles = styled.section`
   }
 `;
 
-const ItemStyles = styled.div`
-  & .img-wrapper {
-    max-width: 1065px;
-    width: 76%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-  }
-  & .howDoWeClean-img {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-  }
-`;
-
 const RoomSlider = styled.div`
   width: 100%;
   height: 100%;
@@ -82,18 +58,11 @@ const RoomSlider = styled.div`
     height: 21px;
     left: 53px;
     top: 35px;
-
-    /* 1440 / H6 */
-
     font-family: TT Travels;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 130%;
-    /* identical to box height, or 21px */
-
-    /* White */
-
     color: #ffffff;
   }
   .slider-wrapper {
@@ -115,7 +84,6 @@ const RoomSlider = styled.div`
   .roomBar {
     width: 26%;
     height: 100%;
-    /* background: #5a30f0; */
     z-index: 100;
   }
 
@@ -154,7 +122,6 @@ const RoomSlider = styled.div`
     }
 
     li {
-      /* display: block; */
       width: 240px;
       height: 53px;
       font-family: "TT Travels";
@@ -171,10 +138,8 @@ const RoomSlider = styled.div`
   }
   .slider--position {
     width: 100%;
-    /* height: 100%; */
+
     .img-wrapper {
-      /* max-width: 1065px; */
-      /* width: 76%; */
       margin-left: 24%;
       height: 100%;
       position: relative;
@@ -183,4 +148,4 @@ const RoomSlider = styled.div`
   }
 `;
 
-export { HowDoWeStyles, RoomSlider, ItemStyles };
+export { HowDoWeStyles, RoomSlider };

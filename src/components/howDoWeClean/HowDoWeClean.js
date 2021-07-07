@@ -1,5 +1,5 @@
 import React from "react";
-import { HowDoWeStyles, RoomSlider, ItemStyles } from "./HowDoWeStyles";
+import { HowDoWeStyles, RoomSlider } from "./HowDoWeStyles";
 
 import { useRef } from "react";
 import useOnScreen from "../hooks/useOnScreen";
@@ -12,12 +12,14 @@ import shiftAnimation from "../../animation/shiftAnimation.module.css";
 import scaleAnimation from "../../animation/scaleAnimation.module.css";
 import kitchenbg from "../../images/kitchenbg.jpg";
 
+import PlusButton from "../plusButton/PlusButton";
+
 const HowDoWeClean = () => {
   const refWrapper = useRef();
   const refBar = useRef();
-  const onWrapper = useOnScreen(refWrapper, "-50%");
+  const onWrapper = useOnScreen(refWrapper, "70% 0px 0px 0px");
   console.log("onWrapper: ", onWrapper);
-  const onBar = useOnScreen(refWrapper, "-50%");
+  const onBar = useOnScreen(refWrapper, "-650px  0% 0% 0% ");
   console.log("onBar: ", onBar);
 
   const rooms = (() => {
@@ -99,18 +101,18 @@ const HowDoWeClean = () => {
             приступает к делу. Вам остаётся только оценить результат.
           </p>
         </div>
-        {!onWrapper && (
+        {/* {!onWrapper && (
           <img
             className="howDoWeClean-img"
             src={kitchenbg}
             alt="Room`s pictures"
           />
-        )}
+        )} */}
         <CSSTransition
           in={onWrapper}
           timeout={500}
           classNames={scaleAnimation}
-          unmountOnExit
+          // unmountOnExit
         >
           <RoomSlider>
             {/* <div className="roomBar">asdfsdf</div> */}
@@ -118,6 +120,7 @@ const HowDoWeClean = () => {
               <Slider {...settings}>
                 {sliderData.map((item) => (
                   <div key={item.id} className="img-wrapper">
+                    <PlusButton xCoor={5000} yCoor={300} />
                     <img
                       className="howDoWeClean-img"
                       src={item.photo}
