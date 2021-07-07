@@ -1,28 +1,63 @@
 import React from "react";
 import { HowDoWeStyles, RoomSlider, ItemStyles } from "./HowDoWeStyles";
-import kitchenbg from "../../images/kitchenbg.jpg";
+
 import { useRef } from "react";
-import { useOnScreen } from "../hooks/useOnScreen";
+import useOnScreen from "../hooks/useOnScreen";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { sliderData } from "../../Data/sliderData";
+import { CSSTransition } from "react-transition-group";
+import shiftAnimation from "../../animation/shiftAnimation.module.css";
+import scaleAnimation from "../../animation/scaleAnimation.module.css";
+import kitchenbg from "../../images/kitchenbg.jpg";
 
 const HowDoWeClean = () => {
-  const ref = useRef();
+  const refWrapper = useRef();
+  const refBar = useRef();
+  const onWrapper = useOnScreen(refWrapper, "-50%");
+  console.log("onWrapper: ", onWrapper);
+  const onBar = useOnScreen(refWrapper, "-50%");
+  console.log("onBar: ", onBar);
 
-  const onScreen = useOnScreen(ref, "-470px");
-  console.log("onScreen: ", onScreen);
+  const rooms = (() => {
+    return sliderData.reduce((acc, item) => {
+      acc.push(item.title);
+      return acc;
+    }, []);
+  })();
 
   const settings = {
     customPaging: function (i) {
-      return <a>Кухня</a>;
+      return <div>{rooms[i]}</div>;
+    },
+    appendDots: (dots) => {
+      return (
+        <CSSTransition
+          in={onBar}
+          timeout={1000}
+          classNames={shiftAnimation}
+          unmountOnExit
+        >
+          <div
+            style={{
+              backgroundColor: "#5A30F0",
+            }}
+          >
+            <h6 className="slice-header">Как мы убираем</h6>
+            <ul className="slick-dots__wrapper" style={{ margin: "0px" }}>
+              {dots}
+            </ul>
+          </div>
+        </CSSTransition>
+      );
     },
     arrows: false,
     dots: true,
     dotsClass: "slick-dots slick-thumb",
     className: "slider--position",
     infinite: true,
-    // fade: true,
+    fade: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -30,8 +65,8 @@ const HowDoWeClean = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -39,9 +74,9 @@ const HowDoWeClean = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
       {
@@ -55,7 +90,7 @@ const HowDoWeClean = () => {
   };
 
   return (
-    <HowDoWeStyles ref={ref}>
+    <HowDoWeStyles ref={refWrapper}>
       <div className="howDoWeClean-container">
         <div className="howDoWeClean-wrapper">
           <h2 className="howDoWeClean-header">Как мы убираем</h2>
@@ -64,33 +99,38 @@ const HowDoWeClean = () => {
             приступает к делу. Вам остаётся только оценить результат.
           </p>
         </div>
-        <RoomSlider>
-          {/* <div className="roomBar">asdfsdf</div> */}
-          <div className="slider-wrapper">
-            <Slider {...settings}>
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-            </Slider>
-          </div>
-          {/* </div> */}
-          {/* <div className="img-wrapper">
-            <img className="howDoWeClean-img" src={kitchenbg} alt="kitchen" />
-          </div> */}
-        </RoomSlider>
+        {!onWrapper && (
+          <img
+            className="howDoWeClean-img"
+            src={kitchenbg}
+            alt="Room`s pictures"
+          />
+        )}
+        <CSSTransition
+          in={onWrapper}
+          timeout={500}
+          classNames={scaleAnimation}
+          unmountOnExit
+        >
+          <RoomSlider>
+            {/* <div className="roomBar">asdfsdf</div> */}
+            <div className="slider-wrapper" ref={refBar}>
+              <Slider {...settings}>
+                {sliderData.map((item) => (
+                  <div key={item.id} className="img-wrapper">
+                    <img
+                      className="howDoWeClean-img"
+                      src={item.photo}
+                      alt="Room`s pictures"
+                    />
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          </RoomSlider>
+        </CSSTransition>
       </div>
     </HowDoWeStyles>
-  );
-};
-
-const Item = () => {
-  return (
-    <ItemStyles>
-      <div className="img-wrapper">
-        <img className="howDoWeClean-img" src={kitchenbg} alt="kitchen" />
-      </div>
-    </ItemStyles>
   );
 };
 

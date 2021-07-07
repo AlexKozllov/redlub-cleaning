@@ -1,28 +1,21 @@
 .enter {
   opacity: 0;
+  transform: translateX(-50%);
 }
 
 .enterActive {
   opacity: 1;
-  transition: all 2500ms linear;
+  transform: translateX(0%);
+  transition: all 500ms linear 500ms;
 }
 
 .exit {
   opacity: 1;
+  transform: translateX(0%);
 }
 
 .exitActive {
   opacity: 0;
-  transition: all 250ms linear;
+  transform: translateX(-50%);
+  transition: all 500ms linear 500ms;
 }
-
-/* 
-const scrollHandler=(e)=> {
-  console.log(`object`, object)
-}
-
-onScroll= {
-  scrollHandler
-}
-when={this.state.show}
- */

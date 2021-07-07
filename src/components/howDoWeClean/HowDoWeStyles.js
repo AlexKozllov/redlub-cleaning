@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const HowDoWeStyles = styled.section`
   width: 100%;
+  height: 800px;
   margin-top: 194px;
   /* display: flex;
   flex-direction: row;
@@ -47,14 +48,14 @@ const HowDoWeStyles = styled.section`
 `;
 
 const ItemStyles = styled.div`
-  /* & .img-wrapper {
+  & .img-wrapper {
     max-width: 1065px;
     width: 76%;
     height: 100%;
     position: relative;
     overflow: hidden;
-  } */
-  /* & .howDoWeClean-img {
+  }
+  & .howDoWeClean-img {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -62,7 +63,7 @@ const ItemStyles = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     object-fit: cover;
-  } */
+  }
 `;
 
 const RoomSlider = styled.div`
@@ -75,25 +76,50 @@ const RoomSlider = styled.div`
   justify-content: start;
   align-items: center;
 
+  .slice-header {
+    position: absolute;
+    width: 136px;
+    height: 21px;
+    left: 53px;
+    top: 35px;
+
+    /* 1440 / H6 */
+
+    font-family: TT Travels;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    /* identical to box height, or 21px */
+
+    /* White */
+
+    color: #ffffff;
+  }
   .slider-wrapper {
     width: 100%;
+    height: 100%;
+  }
+  .img-wrapper {
+    height: 100%;
+  }
+  .howDoWeClean-img {
+    height: 100%;
   }
   .myDiv {
     width: 50px;
     height: 50px;
     background: red;
   }
-  h3 {
-  }
+
   .roomBar {
     width: 26%;
     height: 100%;
-    background: blue;
+    /* background: #5a30f0; */
     z-index: 100;
   }
 
   .slick-dots {
-    background-color: blue;
     color: #fff;
     width: 24%;
     height: 100%;
@@ -104,10 +130,49 @@ const RoomSlider = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .slick-dots__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .slick-active {
+      position: relative;
+      transform: translate(50px);
+      transition: transform 0.3s ease-in;
+      font-style: italic;
+      opacity: 1;
+      ::before {
+        content: "→";
+        width: 30px;
+        height: 100%;
+        position: absolute;
+        left: -50px;
+        top: 0;
+        transition: width 0.3s ease-in;
+      }
+    }
+
+    li {
+      /* display: block; */
+      width: 240px;
+      height: 53px;
+      font-family: "TT Travels";
+      font-style: normal;
+      font-weight: normal;
+      font-size: 44px;
+      line-height: 120%;
+
+      color: #ffffff;
+
+      opacity: 0.7;
+      text-align: start;
+    }
   }
   .slider--position {
     width: 100%;
-    & .img-wrapper {
+    /* height: 100%; */
+    .img-wrapper {
       /* max-width: 1065px; */
       /* width: 76%; */
       margin-left: 24%;
@@ -115,20 +180,7 @@ const RoomSlider = styled.div`
       position: relative;
       overflow: hidden;
     }
-    /* & .howDoWeClean-img {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-  } */
-    /* margin-left: 50px; */
   }
-  /* .slick-thumb {
- 
-  } */
 `;
 
 export { HowDoWeStyles, RoomSlider, ItemStyles };
