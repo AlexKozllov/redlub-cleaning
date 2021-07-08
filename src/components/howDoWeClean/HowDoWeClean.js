@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HowDoWeStyles, RoomSlider } from "./HowDoWeStyles";
+import { v4 as uuidv4 } from "uuid";
 
 import { useRef } from "react";
 import useOnScreen from "../hooks/useOnScreen";
@@ -12,14 +13,22 @@ import shiftAnimation from "../../animation/shiftAnimation.module.css";
 import scaleAnimation from "../../animation/scaleAnimation.module.css";
 
 import PlusButton from "../plusButton/PlusButton";
+import { useDispatch } from "react-redux";
+import { howWeDoIsible } from "../../redux/actions/mainAction";
 
 const HowDoWeClean = () => {
-  const refWrapper = useRef();
-  const refBar = useRef();
+  const dispatch = useDispatch();
+  const refWrapper = useRef(null);
+  const refBar = useRef(null);
+  const refImg = useRef(null);
   const onWrapper = useOnScreen(refWrapper, "70% 0px 0px 0px");
-  console.log("onWrapper: ", onWrapper);
   const onBar = useOnScreen(refWrapper, "-650px  0% 0% 0% ");
-  console.log("onBar: ", onBar);
+  let onImg = useOnScreen(refWrapper, "-430px  0% 0% 0% ");
+
+  useEffect(() => {
+    dispatch(howWeDoIsible(onImg));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onImg]);
 
   const rooms = (() => {
     return sliderData.reduce((acc, item) => {
@@ -109,6 +118,7 @@ const HowDoWeClean = () => {
                   <div key={item.id} className="img-wrapper">
                     {item.plusButtons.map((itemBtn) => (
                       <PlusButton
+                        key={uuidv4()}
                         xCoor={itemBtn.xCoor}
                         yCoor={itemBtn.yCoor}
                         message={itemBtn.message}
@@ -116,6 +126,7 @@ const HowDoWeClean = () => {
                     ))}
 
                     <img
+                      ref={refImg}
                       className="howDoWeClean-img"
                       src={item.photo}
                       alt="Room`s pictures"

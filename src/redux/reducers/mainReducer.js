@@ -3,6 +3,7 @@ import {
   menuBattonCliked,
   checkBoxCliked,
   hoverOnBox,
+  howWeDoIsible,
 } from "../actions/mainAction";
 
 const isOpenMenu = createReducer(false, {
@@ -19,16 +20,16 @@ const homeOrOffise = createReducer("home", {
   },
 });
 
+const visibleHowWeDo = createReducer(false, {
+  [howWeDoIsible]: (state, { payload }) => payload,
+});
+
 const isHover = createReducer(false, {
   [hoverOnBox]: (state, { payload }) => payload,
-  // [payMethodsSuccess]: () => false,
-  // [payMethodsError]: () => false,
 });
 
 const loading = createReducer(false, {
   [menuBattonCliked]: () => true,
-  // [payMethodsSuccess]: () => false,
-  // [payMethodsError]: () => false,
 });
 const error = createReducer(null, {
   // [payMethodsError]: (_, { payload }) => payload,
@@ -36,6 +37,7 @@ const error = createReducer(null, {
 });
 
 const mainReduser = combineReducers({
+  visibleHowWeDo,
   isHover,
   isOpenMenu,
   homeOrOffise,

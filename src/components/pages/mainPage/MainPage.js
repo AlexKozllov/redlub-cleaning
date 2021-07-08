@@ -1,10 +1,18 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { CSSTransition } from "react-transition-group";
+import { visibleHowWeDo } from "../../../redux/selectors/mainSelector";
 import Advantage from "../../advantage/Advantage";
 import HowDoWeClean from "../../howDoWeClean/HowDoWeClean";
+import StickyButton from "../../stickyButton/StickyButton";
+import scaleBtn from "../../../animation/scaleBtn.module.css";
 
 import { MainPageWrapper } from "./MainPageStyles";
 
 const MainPage = () => {
+  const isVisibleHowWeDo = useSelector((state) => visibleHowWeDo(state));
+  console.log("isVisibleHowWeDo: ", isVisibleHowWeDo);
+
   return (
     <MainPageWrapper>
       <div className="heade-wrapper">
@@ -19,6 +27,15 @@ const MainPage = () => {
           </div>
         </div>
       </div>
+
+      <CSSTransition
+        in={!isVisibleHowWeDo}
+        timeout={500}
+        classNames={scaleBtn}
+        unmountOnExit
+      >
+        <StickyButton />
+      </CSSTransition>
       <Advantage />
       <HowDoWeClean />
     </MainPageWrapper>

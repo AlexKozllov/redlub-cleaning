@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const HeaderStyles = styled.div`
-  /* margin: 10px; */
   width: 100%;
   height: 70px;
   position: fixed;
