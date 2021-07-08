@@ -1,9 +1,9 @@
 import React from "react";
 import { PlusButtonStyles } from "./PlusButtonStyles";
 
-const PlusButton = () => {
+const PlusButton = (props) => {
   return (
-    <PlusButtonStyles>
+    <PlusButtonStyles {...props}>
       <div className="plusButton">
         <div className="plusWrapper">
           <div className="plusButton-item"></div>

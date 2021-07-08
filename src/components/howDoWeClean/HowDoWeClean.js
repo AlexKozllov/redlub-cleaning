@@ -10,7 +10,6 @@ import { sliderData } from "../../Data/sliderData";
 import { CSSTransition } from "react-transition-group";
 import shiftAnimation from "../../animation/shiftAnimation.module.css";
 import scaleAnimation from "../../animation/scaleAnimation.module.css";
-import kitchenbg from "../../images/kitchenbg.jpg";
 
 import PlusButton from "../plusButton/PlusButton";
 
@@ -101,26 +100,21 @@ const HowDoWeClean = () => {
             приступает к делу. Вам остаётся только оценить результат.
           </p>
         </div>
-        {/* {!onWrapper && (
-          <img
-            className="howDoWeClean-img"
-            src={kitchenbg}
-            alt="Room`s pictures"
-          />
-        )} */}
-        <CSSTransition
-          in={onWrapper}
-          timeout={500}
-          classNames={scaleAnimation}
-          // unmountOnExit
-        >
+
+        <CSSTransition in={onWrapper} timeout={500} classNames={scaleAnimation}>
           <RoomSlider>
-            {/* <div className="roomBar">asdfsdf</div> */}
             <div className="slider-wrapper" ref={refBar}>
               <Slider {...settings}>
                 {sliderData.map((item) => (
                   <div key={item.id} className="img-wrapper">
-                    <PlusButton xCoor={5000} yCoor={300} />
+                    {item.plusButtons.map((itemBtn) => (
+                      <PlusButton
+                        xCoor={itemBtn.xCoor}
+                        yCoor={itemBtn.yCoor}
+                        message={itemBtn.message}
+                      />
+                    ))}
+
                     <img
                       className="howDoWeClean-img"
                       src={item.photo}

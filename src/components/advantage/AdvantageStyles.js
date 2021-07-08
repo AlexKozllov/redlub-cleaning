@@ -37,25 +37,30 @@ const ItemsCardStyles = styled.li`
   background-image: url(${({ img }) => img});
   background-repeat: no-repeat;
   background-position: bottom;
-
+  ::before {
+    content: "${({ description }) => description}";
+    width: 239px;
+    height: 268px;
+    padding: 30px;
+    position: absolute;
+    top: 0;
+    background: #5a30f0;
+    font-family: "TT Travels";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #fff;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+  }
   :hover {
     ::before {
-      content: "${({ description }) => description}";
-      width: 239px;
-      height: 268px;
-      padding: 30px;
-      position: absolute;
-      top: 0;
-      background: #5a30f0;
-      font-family: "TT Travels";
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 22px;
-      letter-spacing: 0px;
-      text-align: left;
-      color: #fff;
-      border-radius: 8px;
+      opacity: 1;
+      transition: opacity 0.2s ease-in;
     }
   }
 `;
