@@ -4,7 +4,6 @@ const StickyButtonStyles = styled.div`
   width: 600px;
   height: 600px;
   background: transparent;
-  /* background: red; */
   position: fixed;
   top: 35vh;
   left: 50vw;

@@ -31,10 +31,7 @@ const isHover = createReducer(false, {
 const loading = createReducer(false, {
   [menuBattonCliked]: () => true,
 });
-const error = createReducer(null, {
-  // [payMethodsError]: (_, { payload }) => payload,
-  // [payMethodsSuccess]: () => "",
-});
+const error = createReducer(null, {});
 
 const mainReduser = combineReducers({
   visibleHowWeDo,

@@ -46,7 +46,6 @@ const MainPageWrapper = styled.div`
   .header-description {
     width: 397px;
     height: 75px;
-    //styleName: 1440 / Text;
     font-family: TT Travels;
     font-size: 18px;
     font-style: normal;

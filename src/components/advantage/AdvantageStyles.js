@@ -3,12 +3,13 @@ import styled from "styled-components";
 const AdvantageStyles = styled.section`
   margin: 0 auto;
   .advantage-list {
-    width: 1320px;
+    max-width: 1320px;
     margin: 0 auto;
     margin-top: 73px;
     height: 328px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
   }
