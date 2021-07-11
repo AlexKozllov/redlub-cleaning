@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { useRef } from "react";
 import useOnScreen from "../hooks/useOnScreen";
-import Slider from "react-slick";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { sliderData } from "../../Data/sliderData";
@@ -15,6 +15,7 @@ import scaleAnimation from "../../animation/scaleAnimation.module.css";
 import PlusButton from "../plusButton/PlusButton";
 import { useDispatch } from "react-redux";
 import { howWeDoIsible } from "../../redux/actions/mainAction";
+import Slider from "../slider/Slider";
 
 const HowDoWeClean = () => {
   const dispatch = useDispatch();
@@ -110,7 +111,8 @@ const HowDoWeClean = () => {
           </p>
         </div>
 
-        <CSSTransition in={onWrapper} timeout={500} classNames={scaleAnimation}>
+        <Slider />
+        {/* <CSSTransition in={onWrapper} timeout={500} classNames={scaleAnimation}>
           <RoomSlider>
             <div className="slider-wrapper" ref={refBar}>
               <Slider {...settings}>
@@ -136,7 +138,7 @@ const HowDoWeClean = () => {
               </Slider>
             </div>
           </RoomSlider>
-        </CSSTransition>
+        </CSSTransition> */}
       </div>
     </HowDoWeStyles>
   );

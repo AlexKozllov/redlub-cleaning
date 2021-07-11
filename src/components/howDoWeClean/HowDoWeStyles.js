@@ -14,6 +14,7 @@ const HowDoWeStyles = styled.section`
   .howDoWeClean-wrapper {
     width: 1094px;
     height: 113px;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
