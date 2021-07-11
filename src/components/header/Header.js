@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "../navigation/Navigation";
-import Media from "react-media";
 import MenuBatton from "../menuBatton/MenuBatton";
 import { HeaderStyles } from "./HeaderStyles";
 import sprite from "../../sprites/sprite.svg";
