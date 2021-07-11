@@ -25,9 +25,7 @@ const NavigationStyles = styled.div`
     @media (min-width: 1394px) {
       margin-right: 32px;
     }
-    @media (min-width: 1920px) {
-      font-size: 24px;
-    }
+
     :last-child {
       margin-right: 67px;
     }

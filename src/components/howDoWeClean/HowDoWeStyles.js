@@ -6,14 +6,16 @@ const HowDoWeStyles = styled.section`
   margin-top: 194px;
 
   .howDoWeClean-container {
-    height: 795px;
+    /* height: 795px;
     height: 800px;
-    margin: 0 auto;
+    margin: 0 auto; */
   }
 
   .howDoWeClean-wrapper {
     width: 1094px;
     height: 113px;
+    margin: 0 auto;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -141,6 +143,7 @@ const RoomSlider = styled.div`
 
     .img-wrapper {
       margin-left: 24%;
+
       height: 100%;
       position: relative;
       overflow: hidden;
