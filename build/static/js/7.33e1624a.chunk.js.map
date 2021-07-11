@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/pages/regularCleaning/RegularCleaning.js"],"names":["RegularCleaning"],"mappings":"wHAAA,uBAMeA,UAJS,WACtB,OAAO","file":"static/js/7.33e1624a.chunk.js","sourcesContent":["import React from \"react\";\r\n\r\nconst RegularCleaning = () => {\r\n  return <h2>Regular Cleaning</h2>;\r\n};\r\n\r\nexport default RegularCleaning;\r\n"],"sourceRoot":""}

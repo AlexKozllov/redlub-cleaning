@@ -1,18 +1,26 @@
 import styled from "styled-components";
 
 const StickyButtonStyles = styled.div`
-  width: 600px;
-  height: 600px;
+  max-width: 600px;
+  max-height: 600px;
+  width: 100%;
+  height: 30%;
   background: transparent;
   position: fixed;
   top: 35vh;
+  top: calc(100vh - 40%);
   left: 50vw;
   transform: translate(-50%, 0%);
   z-index: 800;
 
+  @media (min-width: 600px) {
+    width: 40%;
+    height: 40%;
+  }
+
   .btn-body {
-    width: 195px;
-    height: 195px;
+    width: 140px;
+    height: 140px;
     background: #5a30f0;
     border-radius: 50%;
     display: flex;
@@ -28,7 +36,10 @@ const StickyButtonStyles = styled.div`
     transform: translate(-50%, -50%);
     transition: left 0.2s ease-in, top 0.2s ease-in;
     box-shadow: none;
-
+    @media (min-width: 600px) {
+      width: 195px;
+      height: 195px;
+    }
     :hover {
       box-sizing: content-box;
       box-shadow: 0px 0px 0px 68px rgba(90, 48, 240, 0.13);

@@ -17,7 +17,7 @@ const MeuBattonsStyles = styled.div`
   }
 
   .button-line {
-    width: 100%;
+    width: 26px;
     height: 2px;
     background: #000;
   }

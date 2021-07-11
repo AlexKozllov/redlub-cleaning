@@ -3,28 +3,21 @@ import styled from "styled-components";
 const AdvantageStyles = styled.section`
   margin: 0 auto;
   .advantage-list {
-    max-width: 1320px;
+    max-width: 768px;
+    /* padding-left: 4%; */
+    /* padding-right: 4%; */
     margin: 0 auto;
     margin-top: 73px;
-    height: 328px;
+    /* height: 328px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    justify-content: center;
     align-items: center;
-  }
-
-  .header-item {
-    width: 219px;
-    margin: 0 auto;
-    margin-top: 20px;
-    font-family: "TT Travels";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 31px;
-    letter-spacing: 0px;
-    text-align: center;
+    @media (min-width: 1380px) {
+      max-width: 1380px;
+    }
   }
 `;
 
@@ -34,14 +27,19 @@ const ItemsCardStyles = styled.li`
   background: #f3f6fb;
   list-style: none;
   position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
   border-radius: 8px;
   background-image: url(${({ img }) => img});
   background-repeat: no-repeat;
   background-position: bottom;
+  /* background-size: cover; */
   ::before {
     content: "${({ description }) => description}";
-    width: 239px;
-    height: 268px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
     padding: 30px;
     position: absolute;
     top: 0;
@@ -63,6 +61,20 @@ const ItemsCardStyles = styled.li`
       opacity: 1;
       transition: opacity 0.2s ease-in;
     }
+  }
+  .header-item {
+    display: block;
+    width: 219px;
+    height: 328px;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-family: "TT Travels";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 31px;
+    letter-spacing: 0px;
+    text-align: center;
   }
 `;
 

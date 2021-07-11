@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-template"]=this["webpackJsonpreact-template"]||[]).push([[8],{109:function(t,e,n){"use strict";n.r(e);n(0);var a=n(1);e.default=function(){return Object(a.jsx)("h2",{children:"Sprining Cleaning"})}}}]);
+//# sourceMappingURL=8.79135dff.chunk.js.map

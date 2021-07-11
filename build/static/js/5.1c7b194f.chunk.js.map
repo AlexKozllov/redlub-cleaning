@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/pages/aftrRenovation/Afterrenovation.js"],"names":["Afterrenovation"],"mappings":"wHAAA,uBAMeA,UAJS,WACtB,OAAO","file":"static/js/5.1c7b194f.chunk.js","sourcesContent":["import React from \"react\";\r\n\r\nconst Afterrenovation = () => {\r\n  return <h2>After Renovation</h2>;\r\n};\r\n\r\nexport default Afterrenovation;\r\n"],"sourceRoot":""}

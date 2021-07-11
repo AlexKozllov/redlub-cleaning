@@ -26,37 +26,33 @@ const HeaderStyles = styled.div`
   .logo {
     width: 99px;
     height: 25px;
-
     fill: #404040;
   }
 
   .navigation-box {
-    width: 73%;
-    /* margin-top: 25px; */
     margin-right: 45px;
     position: absolute;
     right: 0;
-    /* top: 0; */
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    @media (max-width: 1293px) {
-      /* width: 26%; */
-      width: 250px;
-    }
   }
-  & .contact-information {
-    width: 250px;
+  .contact-information {
+    /* width: 250px; */
     height: 18px;
+    margin-right: 32px;
     color: #404040;
-
     font-family: "TT Travels";
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: 19px;
     letter-spacing: 0.20000000298023224px;
+    display: none;
+    @media (min-width: 666px) {
+      display: block;
+    }
   }
 `;
 

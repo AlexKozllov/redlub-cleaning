@@ -6,8 +6,9 @@ const CheckBoxStyles = styled.div`
   background: #fff;
   background: #fff;
   border-radius: 18px;
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
+  display: none;
   justify-content: ${({ homeOrOffiseChecked }) => {
     if (homeOrOffiseChecked === "offise") {
       return "flex-end";
@@ -16,6 +17,11 @@ const CheckBoxStyles = styled.div`
       return "flex-start";
     }
   }};
+
+  @media (min-width: 425px) {
+    display: flex;
+  }
+
   align-items: center;
   padding: 3px;
   position: relative;

@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/pages/eyeWash/EyeWash.js"],"names":["EyeWash"],"mappings":"wHAAA,uBAMeA,UAJC,WACd,OAAO","file":"static/js/6.049cae87.chunk.js","sourcesContent":["import React from \"react\";\r\n\r\nconst EyeWash = () => {\r\n  return <h2>Eye Cleaning</h2>;\r\n};\r\n\r\nexport default EyeWash;\r\n"],"sourceRoot":""}

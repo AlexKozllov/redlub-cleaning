@@ -15,10 +15,10 @@ const MainPage = () => {
 
   return (
     <MainPageWrapper>
-      <div className="heade-wrapper">
+      <div className="header-wrapper">
         <div className="header-picture"></div>
         <div className="header-content">
-          <div className="header-wrapper">
+          <div className="content-wrapper">
             <h1 className="header-title">Уборка квартир в Киеве</h1>
             <p className="header-description">
               Мы уберем у вас дома или в офисе. Наведем чистоту после ремонта и
