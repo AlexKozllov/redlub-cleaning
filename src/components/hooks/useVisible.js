@@ -20,10 +20,9 @@ export default function useVisibility(
       setIsVisible(false);
       return;
     }
-    const top = currentElement.current.getBoundingClientRect().top;
-    // console.log("top: ", currentElement.current.getBoundingClientRect());
+    const el = currentElement.current.getBoundingClientRect();
 
-    setIsVisible(top - offset <= window.innerHeight);
+    setIsVisible(el.top - el.height * offset * 0.01 <= window.innerHeight);
   }, throttleMilliseconds);
 
   useEffect(() => {

@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import shiftAnimation from "../../animation/shiftAnimation.module.css";
+import shiftAnimationSlider from "../../animation/shiftAnimationSlider.module.css";
+// import shiftAnimation from "../../animation/shiftAnimation.module.css";
+// import shiftAnimation from "../../animation/shiftAnimation.module.css";
 import { sliderData } from "../../Data/sliderData";
+
 import { v4 as uuidv4 } from "uuid";
 import PlusButton from "../plusButton/PlusButton";
 import { SliderStyles } from "./SliderStules";
@@ -31,55 +35,69 @@ const Slider = () => {
 
   const refImg = useRef(null);
 
-  let onImg = useOnScreen(refImg, "-40%");
+  let onImg = useOnScreen(refImg, "-90%");
   console.log("onImg: ", onImg);
-  const [isVisible, currentElement] = useVisibility(refImg, -400);
-  console.log("isVisible: ", isVisible);
+  const [isVisible] = useVisibility(refImg, -90);
+
+  // console.log("isVisible: ", isVisible);
 
   return (
-    <SliderStyles>
-      <CSSTransition
-        in={onImg}
-        in={isVisible}
-        timeout={1000}
-        classNames={shiftAnimation}
-        unmountOnExit
-      >
-        <ul className="item-container">
-          {rooms.map((item) => (
-            <li key={uuidv4()} onClick={roomHandler} data-roomid={item.tid}>
-              {item.title}
-            </li>
-          ))}
-        </ul>
-      </CSSTransition>
-      <ul ref={refImg} className="img-container">
+    <SliderStyles isVisible={isVisible}>
+      <div className="slider-container">
         <CSSTransition
           in={isVisible}
-          timeout={5000}
+          in={true}
+          timeout={2000}
           classNames={shiftAnimation}
-          // unmountOnExit
-          key={uuidv4()}
+          unmountOnExit
         >
-          <li className="img-wrapper">
-            <img
-              className="img"
-              src={curruntRoom.photo}
-              alt="Room`s pictures"
-            />
-            {curruntRoom.plusButtons &&
-              curruntRoom.plusButtons.length > 0 &&
-              curruntRoom.plusButtons.map((itemBtn) => (
-                <PlusButton
-                  key={uuidv4()}
-                  xCoor={itemBtn.xCoor}
-                  yCoor={itemBtn.yCoor}
-                  message={itemBtn.message}
-                />
+          <div className="slick-dots">
+            <h6 className="slice-header">Как мы убираем</h6>
+            <ul className="item-container">
+              {rooms.map((item) => (
+                <li key={uuidv4()} onClick={roomHandler} data-roomid={item.tid}>
+                  {item.title}
+                </li>
               ))}
-          </li>
+            </ul>
+          </div>
         </CSSTransition>
-      </ul>
+        {/* <CSSTransition
+        in={isVisible}
+        in={true}
+        timeout={1000}
+        classNames={shiftAnimationSlider}
+        // unmountOnExit
+      > */}
+        <ul ref={refImg} className="img-container">
+          <CSSTransition
+            in={true}
+            timeout={5000}
+            classNames={shiftAnimation}
+            // unmountOnExit
+            key={uuidv4()}
+          >
+            <li key={uuidv4()} className="img-wrapper">
+              <img
+                className="img"
+                src={curruntRoom.photo}
+                alt="Room`s pictures"
+              />
+              {/* {curruntRoom.plusButtons &&
+                curruntRoom.plusButtons.length > 0 &&
+                curruntRoom.plusButtons.map((itemBtn) => (
+                  <PlusButton
+                    key={uuidv4()}
+                    xCoor={itemBtn.xCoor}
+                    yCoor={itemBtn.yCoor}
+                    message={itemBtn.message}
+                  />
+                ))} */}
+            </li>
+          </CSSTransition>
+        </ul>
+        {/* </CSSTransition> */}
+      </div>
     </SliderStyles>
   );
 };
