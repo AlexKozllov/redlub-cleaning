@@ -13,14 +13,14 @@
 
 .enterActive {
   /* opacity: 1; */
-  transform: translate(0%, 0%);
+  transform: translate(-500%, 0%);
   /* right: 0; */
   /* left: 100%; */
   transition: all 1000ms linear;
 }
 
 .enterDone {
-  transform: translate(0%, 0%);
+  transform: translate(-500%, 0%);
   /* left: 100%; */
 }
 

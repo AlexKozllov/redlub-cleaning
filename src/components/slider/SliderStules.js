@@ -33,7 +33,6 @@ const slipitemDot = keyframes`
 const slipAnimation = css`
   animation: ${slip} 1s ease-in;
   animation-fill-mode: forwards;
-  /* animation-play-state: paused; */
 `;
 
 const slipDotsAnimation = css`
@@ -57,6 +56,10 @@ const SliderStyles = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  /* .img-container {
+  
+  } */
 
   .slick-dots {
     color: #fff;
@@ -129,13 +132,19 @@ const SliderStyles = styled.div`
       }
     }
   }
+  .bg-transition {
+    width: 100%;
+    height: 100%;
+    background: url("${({ bgphoto }) => bgphoto}") no-repeat;
+    background-position-x: 100%;
+  }
 `;
 
 const SwchItem = styled.div`
   width: 80%;
   position: absolute;
-  left: 22%;
-  ${({ isVisible, sliderTogler }) => isVisible && slipAnimation}
+  left: 50%;
+  ${({ isVisible }) => isVisible && slipAnimation}
   transform: translateX(-50%);
   .img-wrapper {
     width: 100%;

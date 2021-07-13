@@ -17,12 +17,13 @@ import useOnScreen from "../hooks/useOnScreen";
 import useVisibility from "../hooks/useVisible";
 const Slider = () => {
   const [curruntRoom, setcurruntRoom] = useState({});
-  // const [prevRoom, setPrevRoom] = useState({});
+  const [prevRoom, setPrevRoom] = useState({});
   const [surrentId, setSurrentId] = useState(0);
   const [sliderTogler, setSliderTogler] = useState(true);
 
   useEffect(() => {
     setcurruntRoom(findCurruntRoom(0));
+    setPrevRoom(findPrevRoom(1));
   }, []);
 
   const rooms = (() => {
@@ -36,12 +37,12 @@ const Slider = () => {
     const { roomid } = e.target.dataset;
     slidetTogler();
     setcurruntRoom(findCurruntRoom(roomid));
-    // setPrevRoom(findPrevRoom(roomid));
+    setPrevRoom(findPrevRoom(curruntRoom.id));
     setSurrentId(roomid);
   };
 
   const findCurruntRoom = (id) => sliderData.find((item) => +item.id === +id);
-  // const findPrevRoom = (id) => sliderData.find((item) => +item.id === +id - 1);
+  const findPrevRoom = (id) => sliderData.find((item) => +item.id === +id);
 
   const refImg = useRef(null);
 
@@ -54,9 +55,12 @@ const Slider = () => {
 
     // setSliderTogler(true);
   };
-
   return (
-    <SliderStyles isVisible={isVisible} sliderTogler={sliderTogler}>
+    <SliderStyles
+      isVisible={isVisible}
+      bgphoto={prevRoom.photo}
+      sliderTogler={sliderTogler}
+    >
       <div className="slider-container">
         <div className="slick-dots">
           <h6 className="slice-header">Как мы убираем</h6>
@@ -73,11 +77,12 @@ const Slider = () => {
             ))}
           </ul>
         </div>
-        <SwitchTransition mode={"in-out"}>
+        {/* <SwitchTransition mode={"in-out"}> */}
+        <div className="bg-transition" bgphoto={curruntRoom.photo}>
           <CSSTransition
             key={uuidv4()}
             in={sliderTogler}
-            // in={true}
+            // in={false}
             timeout={1000}
             classNames={shiftAnimation}
             // unmountOnExit
@@ -85,7 +90,12 @@ const Slider = () => {
             //   node.addEventListener("transitionend", done, false);
             // }}
           >
-            <SwchItem ref={refImg} key={uuidv4()} className="img-container">
+            <SwchItem
+              isVisible={isVisible}
+              ref={refImg}
+              key={uuidv4()}
+              className="img-container"
+            >
               <div className="img-wrapper">
                 <img
                   className="img"
@@ -108,7 +118,8 @@ const Slider = () => {
               </div>
             </SwchItem>
           </CSSTransition>
-        </SwitchTransition>
+        </div>
+        {/* </SwitchTransition> */}
       </div>
     </SliderStyles>
   );
