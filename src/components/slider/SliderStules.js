@@ -65,7 +65,7 @@ const SliderStyles = styled.div`
     transform: translateX(-50%);
     .img-wrapper {
       width: 100%;
-      height: auto;
+      height: 100%;
       margin: 0 auto;
       display: flex;
       height: 100%;

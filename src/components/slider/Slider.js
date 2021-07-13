@@ -46,7 +46,8 @@ const Slider = () => {
 
   const refImg = useRef(null);
 
-  const [isVisible] = useVisibility(refImg, -90);
+  const [isVisible, coord] = useVisibility(refImg, -80);
+  console.log(`coord`, coord);
 
   const slidetTogler = () => {
     setSliderTogler(!sliderTogler);
@@ -91,14 +92,23 @@ const Slider = () => {
                 />
                 {curruntRoom.plusButtons &&
                   curruntRoom.plusButtons.length > 0 &&
-                  curruntRoom.plusButtons.map((itemBtn) => (
-                    <PlusButton
-                      key={uuidv4()}
-                      xCoor={itemBtn.xCoor}
-                      yCoor={itemBtn.yCoor}
-                      message={itemBtn.message}
-                    />
-                  ))}
+                  curruntRoom.plusButtons.map(
+                    (itemBtn) =>
+                      isVisible && (
+                        <PlusButton
+                          key={uuidv4()}
+                          xCoor={
+                            ((coord.width - itemBtn.xCoor) / itemBtn.xCoor) *
+                            coord.width
+                          }
+                          yCoor={
+                            ((coord.height - itemBtn.yCoor) / itemBtn.yCoor) *
+                            coord.height
+                          }
+                          message={itemBtn.message}
+                        />
+                      )
+                  )}
               </div>
             </div>
           </CSSTransition>

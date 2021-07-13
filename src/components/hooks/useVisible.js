@@ -13,6 +13,7 @@ export default function useVisibility(
   throttleMilliseconds = 100
 ) {
   const [isVisible, setIsVisible] = useState(false);
+  const [coord, setCoord] = useState({});
   const currentElement = Element;
 
   const onScroll = throttle(() => {
@@ -21,6 +22,7 @@ export default function useVisibility(
       return;
     }
     const el = currentElement.current.getBoundingClientRect();
+    setCoord(el);
 
     setIsVisible(el.top - el.height * offset * 0.01 <= window.innerHeight);
   }, throttleMilliseconds);
@@ -30,5 +32,5 @@ export default function useVisibility(
     return () => document.removeEventListener("scroll", onScroll, true);
   });
 
-  return [isVisible, currentElement];
+  return [isVisible, coord, currentElement];
 }
