@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const NavigationStyles = styled.div`
-  /* width: 662px; */
   height: 19px;
   display: flex;
   flex-direction: row;
@@ -13,7 +12,6 @@ const NavigationStyles = styled.div`
 
   .navLink-item {
     margin-right: 20px;
-    /* margin-right: 32%; */
     text-decoration: none;
     color: #404040;
     font-family: "TT Travels";

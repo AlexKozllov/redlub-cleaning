@@ -1,29 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  CSSTransition,
-  TransitionGroup,
-  SwitchTransition,
-} from "react-transition-group";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 import shiftAnimation from "../../animation/shiftAnimation.module.css";
-import shiftAnimationSlider from "../../animation/shiftAnimationSlider.module.css";
-// import shiftAnimation from "../../animation/shiftAnimation.module.css";
-// import shiftAnimation from "../../animation/shiftAnimation.module.css";
+
 import { sliderData } from "../../Data/sliderData";
 
 import { v4 as uuidv4 } from "uuid";
 import PlusButton from "../plusButton/PlusButton";
 import { SliderStyles, SwchItem } from "./SliderStules";
-import useOnScreen from "../hooks/useOnScreen";
+
 import useVisibility from "../hooks/useVisible";
 const Slider = () => {
   const [curruntRoom, setcurruntRoom] = useState({});
-  const [prevRoom, setPrevRoom] = useState({});
   const [surrentId, setSurrentId] = useState(0);
   const [sliderTogler, setSliderTogler] = useState(true);
 
   useEffect(() => {
     setcurruntRoom(findCurruntRoom(0));
-    setPrevRoom(findPrevRoom(1));
   }, []);
 
   const rooms = (() => {
@@ -37,30 +29,22 @@ const Slider = () => {
     const { roomid } = e.target.dataset;
     slidetTogler();
     setcurruntRoom(findCurruntRoom(roomid));
-    setPrevRoom(findPrevRoom(curruntRoom.id));
+
     setSurrentId(roomid);
   };
 
   const findCurruntRoom = (id) => sliderData.find((item) => +item.id === +id);
-  const findPrevRoom = (id) => sliderData.find((item) => +item.id === +id);
 
   const refImg = useRef(null);
 
   const [isVisible, coord] = useVisibility(refImg, -90);
-  console.log(`isVisible`, isVisible);
+  const isVisibleMemo = useMemo(() => isVisible, [isVisible]);
 
   const slidetTogler = () => {
     setSliderTogler(!sliderTogler);
-    // setSliderTogler(false);
-
-    // setSliderTogler(true);
   };
   return (
-    <SliderStyles
-      isVisible={isVisible}
-      bgphoto={prevRoom.photo}
-      sliderTogler={sliderTogler}
-    >
+    <SliderStyles isVisible={isVisibleMemo} sliderTogler={sliderTogler}>
       <div className="slider-container">
         <div className="slick-dots">
           <h6 className="slice-header">Как мы убираем</h6>
@@ -77,49 +61,44 @@ const Slider = () => {
             ))}
           </ul>
         </div>
-        {/* <SwitchTransition mode={"in-out"}> */}
         <div className="bg-transition" bgphoto={curruntRoom.photo}>
-          <CSSTransition
-            key={uuidv4()}
-            in={sliderTogler}
-            // in={false}
-            timeout={1000}
-            classNames={shiftAnimation}
-            // unmountOnExit
-            // addEndListener={(node, done) => {
-            //   node.addEventListener("transitionend", done, false);
-            // }}
-          >
-            <SwchItem
-              isVisible={isVisible}
-              ref={refImg}
+          <SwitchTransition mode="in-out">
+            <CSSTransition
               key={uuidv4()}
-              className="img-container"
+              in={sliderTogler}
+              timeout={1000}
+              classNames={shiftAnimation}
             >
-              <div className="img-wrapper">
-                <img
-                  className="img"
-                  src={curruntRoom.photo}
-                  alt="Room`s pictures"
-                />
-                {curruntRoom.plusButtons &&
-                  curruntRoom.plusButtons.length > 0 &&
-                  curruntRoom.plusButtons.map(
-                    (itemBtn) =>
-                      isVisible && (
-                        <PlusButton
-                          key={uuidv4()}
-                          xCoor={(itemBtn.xCoor / coord.width) * 100}
-                          yCoor={(itemBtn.yCoor / coord.height) * 100}
-                          message={itemBtn.message}
-                        />
-                      )
-                  )}
-              </div>
-            </SwchItem>
-          </CSSTransition>
+              <SwchItem
+                isVisible={isVisibleMemo}
+                ref={refImg}
+                key={uuidv4()}
+                className="img-container"
+              >
+                <div className="img-wrapper">
+                  <img
+                    className="img"
+                    src={curruntRoom.photo}
+                    alt="Room`s pictures"
+                  />
+                  {curruntRoom.plusButtons &&
+                    curruntRoom.plusButtons.length > 0 &&
+                    curruntRoom.plusButtons.map(
+                      (itemBtn) =>
+                        isVisible && (
+                          <PlusButton
+                            key={uuidv4()}
+                            xCoor={(itemBtn.xCoor / coord.width) * 100}
+                            yCoor={(itemBtn.yCoor / coord.height) * 100}
+                            message={itemBtn.message}
+                          />
+                        )
+                    )}
+                </div>
+              </SwchItem>
+            </CSSTransition>
+          </SwitchTransition>
         </div>
-        {/* </SwitchTransition> */}
       </div>
     </SliderStyles>
   );

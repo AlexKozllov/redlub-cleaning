@@ -6,8 +6,8 @@ const PlusButtonStyles = styled.div`
   border-radius: 50%;
   background: rgba(90, 48, 240, 0.2);
   position: absolute;
-  left: ${({ xCoor }) => `${xCoor > 100 ? xCoor - 100 : xCoor}%`};
-  top: ${({ yCoor }) => `${yCoor > 100 ? yCoor - 100 : yCoor}%`};
+  left: ${({ xCoor }) => `${xCoor}%`};
+  top: ${({ yCoor }) => `${yCoor}%`};
   transform: translate(-50%, -50%);
   z-index: 300;
   display: flex;

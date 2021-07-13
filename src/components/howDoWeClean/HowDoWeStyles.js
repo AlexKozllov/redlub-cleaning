@@ -4,7 +4,7 @@ const HowDoWeStyles = styled.section`
   width: 100%;
   height: auto;
   margin-top: 194px;
-
+  overflow: hidden;
   .howDoWeClean-container {
     margin: 0 auto;
     height: auto;

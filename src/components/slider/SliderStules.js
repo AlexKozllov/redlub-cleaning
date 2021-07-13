@@ -46,7 +46,6 @@ const slipitemDotAnimation = css`
 `;
 
 const SliderStyles = styled.div`
-  overflow: hidden;
   width: 99vw;
   height: 50vw;
   max-height: 800px;
@@ -56,10 +55,6 @@ const SliderStyles = styled.div`
     width: 100%;
     height: 100%;
   }
-
-  /* .img-container {
-  
-  } */
 
   .slick-dots {
     color: #fff;
@@ -81,15 +76,25 @@ const SliderStyles = styled.div`
       position: absolute;
       width: 136px;
       height: 21px;
-      left: 53px;
-      top: 35px;
+      left: 0px;
+      top: 0px;
       background: #5a30f0;
       font-family: "TT Travels";
       font-style: normal;
       font-weight: 500;
-      font-size: 16px;
+      font-size: 12px;
       line-height: 130%;
       color: #ffffff;
+      display: none;
+      @media (min-width: 600px) {
+        display: block;
+        left: 0px;
+        top: 35px;
+      }
+      @media (min-width: 1024px) {
+        left: 53px;
+        font-size: 16px;
+      }
     }
     .item-container {
       width: 100%;
@@ -102,6 +107,10 @@ const SliderStyles = styled.div`
       left: 0;
       top: 0;
       z-index: 500;
+      margin-top: 20px;
+      @media (min-width: 540px) {
+        margin-top: 0;
+      }
       .slick-active {
         position: relative;
 
@@ -120,23 +129,37 @@ const SliderStyles = styled.div`
       li {
         width: 240px;
         height: 53px;
-        margin-left: 60px;
+        margin-left: 20px;
         font-family: "TT Travels";
         font-style: normal;
         font-weight: normal;
-        font-size: 44px;
+        font-size: 12px;
         line-height: 120%;
         color: #ffffff;
         opacity: 0.7;
         text-align: start;
+
+        @media (min-width: 425px) {
+          font-size: 16px;
+        }
+        @media (min-width: 600px) {
+          margin-left: 40px;
+        }
+        @media (min-width: 1024px) {
+          font-size: 30px;
+        }
+        @media (min-width: 1440px) {
+          margin-left: 60px;
+          font-size: 44px;
+        }
       }
     }
   }
   .bg-transition {
     width: 100%;
     height: 100%;
-    background: url("${({ bgphoto }) => bgphoto}") no-repeat;
     background-position-x: 100%;
+    ${({ isVisible }) => isVisible && slipAnimation}
   }
 `;
 
@@ -144,7 +167,6 @@ const SwchItem = styled.div`
   width: 80%;
   position: absolute;
   left: 50%;
-  ${({ isVisible }) => isVisible && slipAnimation}
   transform: translateX(-50%);
   .img-wrapper {
     width: 100%;

@@ -1,34 +1,21 @@
-.appear {
-  /* transform: translate(100%, -20%); */
-}
-
 .enter {
-  /* opacity: 0; */
   transform: translate(100%, -20%);
-  /* width: 900px; */
-  /* position: absolute; */
-  /* left: 0; */
-  /* top: 0; */
 }
 
 .enterActive {
-  /* opacity: 1; */
-  transform: translate(-500%, 0%);
-  /* right: 0; */
-  /* left: 100%; */
+  transform: translate(-37%, 0%);
   transition: all 1000ms linear;
 }
 
 .enterDone {
-  transform: translate(-500%, 0%);
-  /* left: 100%; */
+  transform: translate(-37%, 0%);
 }
 
 .exit {
-  transform: translate(0%, 0%);
+  transform: translate(-37%, 0%);
 }
 
 .exitActive {
-  transform: translate(0%, 0%);
+  transform: translate(-37%, 0%);
   transition: all 1000ms linear;
 }

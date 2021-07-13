@@ -7,12 +7,7 @@ import useOnScreen from "../hooks/useOnScreen";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { sliderData } from "../../Data/sliderData";
-import { CSSTransition } from "react-transition-group";
-import shiftAnimation from "../../animation/shiftAnimation.module.css";
-import scaleAnimation from "../../animation/scaleAnimation.module.css";
 
-import PlusButton from "../plusButton/PlusButton";
 import { useDispatch } from "react-redux";
 import { howWeDoIsVible } from "../../redux/actions/mainAction";
 import Slider from "../slider/Slider";
@@ -20,10 +15,7 @@ import Slider from "../slider/Slider";
 const HowDoWeClean = () => {
   const dispatch = useDispatch();
   const refWrapper = useRef(null);
-  const refBar = useRef(null);
-  const refImg = useRef(null);
-  const onWrapper = useOnScreen(refWrapper, "70% 0px 0px 0px");
-  const onBar = useOnScreen(refWrapper, "-650px  0% 0% 0% ");
+
   let onImg = useOnScreen(refWrapper, "-430px  0% 0% 0% ");
 
   useEffect(() => {

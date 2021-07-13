@@ -27,9 +27,7 @@ const Header = () => {
           <CheckBox />
         </div>
         <div className="navigation-box">
-          {/* <Media query="(min-width: 1293px)" render={() => */}
           <Navigation />
-          {/* // /> */}
           <p className="contact-information">+380 67 401 69 77 | 24/7</p>
           <MenuBatton />
         </div>
