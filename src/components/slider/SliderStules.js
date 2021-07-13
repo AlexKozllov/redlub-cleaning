@@ -33,6 +33,7 @@ const slipitemDot = keyframes`
 const slipAnimation = css`
   animation: ${slip} 1s ease-in;
   animation-fill-mode: forwards;
+  /* animation-play-state: paused; */
 `;
 
 const slipDotsAnimation = css`
@@ -52,31 +53,9 @@ const SliderStyles = styled.div`
   max-height: 800px;
   margin-top: 52px;
   position: relative;
-  scr .slider-container {
+  .slider-container {
     width: 100%;
     height: 100%;
-  }
-
-  .img-container {
-    width: 80%;
-    position: absolute;
-    left: 50%;
-    ${({ isVisible }) => isVisible && slipAnimation}
-    transform: translateX(-50%);
-    .img-wrapper {
-      width: 100%;
-      height: 100%;
-      margin: 0 auto;
-      display: flex;
-      height: 100%;
-      position: relative;
-      z-index: 500;
-      .img {
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
-      }
-    }
   }
 
   .slick-dots {
@@ -152,4 +131,25 @@ const SliderStyles = styled.div`
   }
 `;
 
-export { SliderStyles };
+const SwchItem = styled.div`
+  width: 80%;
+  position: absolute;
+  left: 22%;
+  ${({ isVisible, sliderTogler }) => isVisible && slipAnimation}
+  transform: translateX(-50%);
+  .img-wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    height: 100%;
+    position: relative;
+    z-index: 500;
+    .img {
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+  }
+`;
+export { SliderStyles, SwchItem };

@@ -12,10 +12,9 @@ import { sliderData } from "../../Data/sliderData";
 
 import { v4 as uuidv4 } from "uuid";
 import PlusButton from "../plusButton/PlusButton";
-import { SliderStyles } from "./SliderStules";
+import { SliderStyles, SwchItem } from "./SliderStules";
 import useOnScreen from "../hooks/useOnScreen";
 import useVisibility from "../hooks/useVisible";
-
 const Slider = () => {
   const [curruntRoom, setcurruntRoom] = useState({});
   // const [prevRoom, setPrevRoom] = useState({});
@@ -46,16 +45,18 @@ const Slider = () => {
 
   const refImg = useRef(null);
 
-  const [isVisible, coord] = useVisibility(refImg, -80);
-  console.log(`coord`, coord);
+  const [isVisible, coord] = useVisibility(refImg, -90);
+  console.log(`isVisible`, isVisible);
 
   const slidetTogler = () => {
     setSliderTogler(!sliderTogler);
+    // setSliderTogler(false);
+
     // setSliderTogler(true);
   };
 
   return (
-    <SliderStyles isVisible={isVisible}>
+    <SliderStyles isVisible={isVisible} sliderTogler={sliderTogler}>
       <div className="slider-container">
         <div className="slick-dots">
           <h6 className="slice-header">Как мы убираем</h6>
@@ -72,10 +73,11 @@ const Slider = () => {
             ))}
           </ul>
         </div>
-        <SwitchTransition mode="in-out">
+        <SwitchTransition mode={"in-out"}>
           <CSSTransition
             key={uuidv4()}
             in={sliderTogler}
+            // in={true}
             timeout={1000}
             classNames={shiftAnimation}
             // unmountOnExit
@@ -83,7 +85,7 @@ const Slider = () => {
             //   node.addEventListener("transitionend", done, false);
             // }}
           >
-            <div ref={refImg} key={uuidv4()} className="img-container">
+            <SwchItem ref={refImg} key={uuidv4()} className="img-container">
               <div className="img-wrapper">
                 <img
                   className="img"
@@ -104,7 +106,7 @@ const Slider = () => {
                       )
                   )}
               </div>
-            </div>
+            </SwchItem>
           </CSSTransition>
         </SwitchTransition>
       </div>

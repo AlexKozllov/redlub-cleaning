@@ -3,7 +3,7 @@ import {
   menuBattonCliked,
   checkBoxCliked,
   hoverOnBox,
-  howWeDoIsible,
+  howWeDoIsVible,
 } from "../actions/mainAction";
 
 const isOpenMenu = createReducer(false, {
@@ -21,7 +21,7 @@ const homeOrOffise = createReducer("home", {
 });
 
 const visibleHowWeDo = createReducer(false, {
-  [howWeDoIsible]: (state, { payload }) => payload,
+  [howWeDoIsVible]: (state, { payload }) => payload,
 });
 
 const isHover = createReducer(false, {

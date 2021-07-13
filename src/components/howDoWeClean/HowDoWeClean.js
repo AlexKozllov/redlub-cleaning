@@ -14,7 +14,7 @@ import scaleAnimation from "../../animation/scaleAnimation.module.css";
 
 import PlusButton from "../plusButton/PlusButton";
 import { useDispatch } from "react-redux";
-import { howWeDoIsible } from "../../redux/actions/mainAction";
+import { howWeDoIsVible } from "../../redux/actions/mainAction";
 import Slider from "../slider/Slider";
 
 const HowDoWeClean = () => {
@@ -27,7 +27,7 @@ const HowDoWeClean = () => {
   let onImg = useOnScreen(refWrapper, "-430px  0% 0% 0% ");
 
   useEffect(() => {
-    dispatch(howWeDoIsible(onImg));
+    dispatch(howWeDoIsVible(onImg));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onImg]);
 
@@ -43,33 +43,6 @@ const HowDoWeClean = () => {
         </div>
 
         <Slider />
-        {/* <CSSTransition in={onWrapper} timeout={500} classNames={scaleAnimation}>
-          <RoomSlider>
-            <div className="slider-wrapper" ref={refBar}>
-              <Slider {...settings}>
-                {sliderData.map((item) => (
-                  <div key={item.id} className="img-wrapper">
-                    {item.plusButtons.map((itemBtn) => (
-                      <PlusButton
-                        key={uuidv4()}
-                        xCoor={itemBtn.xCoor}
-                        yCoor={itemBtn.yCoor}
-                        message={itemBtn.message}
-                      />
-                    ))}
-
-                    <img
-                      ref={refImg}
-                      className="howDoWeClean-img"
-                      src={item.photo}
-                      alt="Room`s pictures"
-                    />
-                  </div>
-                ))}
-              </Slider>
-            </div>
-          </RoomSlider>
-        </CSSTransition> */}
       </div>
     </HowDoWeStyles>
   );
