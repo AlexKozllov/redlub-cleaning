@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { HowDoWeStyles, RoomSlider } from "./HowDoWeStyles";
-import { v4 as uuidv4 } from "uuid";
+import { HowDoWeStyles } from "./HowDoWeStyles";
 
 import { useRef } from "react";
 import useOnScreen from "../hooks/useOnScreen";
