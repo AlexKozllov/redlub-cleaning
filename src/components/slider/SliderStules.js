@@ -3,25 +3,30 @@ import styled, { css, keyframes } from "styled-components";
 const slip = keyframes`
   from {
     left: 50%;
-    /* top:0; */
   }
 
   to {
    left: 60%;
-    /* top:-10%; */
-
-  }
+   }
 `;
 const slipDots = keyframes`
   from {
     left: -30%;
-    /* top:0; */
   }
 
   to {
    left: 11%;
-    /* top:-10%; */
 
+  }
+`;
+
+const slipitemDot = keyframes`
+  from {
+    left: 0%;
+  }
+
+  to {
+   left: 15%;
   }
 `;
 
@@ -31,45 +36,42 @@ const slipAnimation = css`
 `;
 
 const slipDotsAnimation = css`
-  animation: ${slipDots} 1s ease-in 1s;
+  animation: ${slipDots} 1s ease-in 0.5s;
+  animation-fill-mode: forwards;
+`;
+
+const slipitemDotAnimation = css`
+  animation: ${slipitemDot} 0.3s ease-in;
   animation-fill-mode: forwards;
 `;
 
 const SliderStyles = styled.div`
-  /* height: 67vh; */
   overflow: hidden;
   width: 99vw;
   height: 50vw;
   max-height: 800px;
-  /* height: min-content; */
   margin-top: 52px;
   position: relative;
   scr .slider-container {
     width: 100%;
-    /* width: 100vh; */
     height: 100%;
   }
 
   .img-container {
     width: 80%;
-    /* width: 100vh; */
     position: absolute;
     left: 50%;
     ${({ isVisible }) => isVisible && slipAnimation}
-
     transform: translateX(-50%);
-
     .img-wrapper {
-      /* width: 320px; */
       width: 100%;
       height: auto;
       margin: 0 auto;
-
       display: flex;
       height: 100%;
       position: relative;
+      z-index: 500;
       .img {
-        /* overflow: hidden; */
         width: 100%;
         height: auto;
         margin: 0 auto;
@@ -108,7 +110,7 @@ const SliderStyles = styled.div`
       color: #ffffff;
     }
     .item-container {
-      /* width: 30%; */
+      width: 100%;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -118,26 +120,36 @@ const SliderStyles = styled.div`
       left: 0;
       top: 0;
       z-index: 500;
-    }
-  }
+      .slick-active {
+        position: relative;
 
-  /*  .slick-active {
-      position: relative;
-      transform: translate(50px);
-      transition: transform 0.3s ease-in;
-      font-style: italic;
-      opacity: 1;
-      ::before {
-        content: "→";
-        width: 30px;
-        height: 100%;
-        position: absolute;
-        left: -50px;
-        top: 0;
-        transition: width 0.3s ease-in;
+        ${() => slipitemDotAnimation}
+        font-style: italic;
+        opacity: 1;
+        ::before {
+          content: "→";
+          width: 30px;
+          height: 100%;
+          position: absolute;
+          left: -50px;
+          top: 0;
+        }
+      }
+      li {
+        width: 240px;
+        height: 53px;
+        margin-left: 60px;
+        font-family: "TT Travels";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 44px;
+        line-height: 120%;
+        color: #ffffff;
+        opacity: 0.7;
+        text-align: start;
       }
     }
-  } */
+  }
 `;
 
 export { SliderStyles };

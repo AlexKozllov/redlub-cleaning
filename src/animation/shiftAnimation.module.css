@@ -1,29 +1,32 @@
 .enter {
   /* opacity: 0; */
-  width: 24%;
-  height: 100%;
-  transform: translateX(-50%);
+  /* width: 24%; */
+
+  transform: translateX(100%);
 }
 
 .enterActive {
   /* opacity: 1; */
-  width: 24%;
-  height: 100%;
+  /* width: 24%; */
+  /* height: 100%; */
+
   transform: translateX(0%);
-  transition: all 1000ms linear 1000ms;
+  transition: all 1000ms linear;
 }
 
 .exit {
   /* opacity: 1; */
-  width: 24%;
-  height: 100%;
-  transform: translateX(0%);
+  /* width: 24%; */
+  /* height: 100%; */
+
+  /* transform: translateX(0%); */
 }
 
 .exitActive {
   /* opacity: 0; */
-  width: 24%;
-  height: 100%;
-  transform: translateX(-50%);
-  transition: all 1000ms linear 1000ms;
+  /* width: 24%; */
+  /* height: 100%; */
+
+  /* transform: translateX(100%); */
+  /* transition: all 1000ms linear 500ms; */
 }

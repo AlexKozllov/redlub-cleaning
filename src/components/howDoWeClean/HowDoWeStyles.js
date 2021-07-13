@@ -2,14 +2,10 @@ import styled from "styled-components";
 
 const HowDoWeStyles = styled.section`
   width: 100%;
-  /* height: 800px; */
-  /* height: 100%; */
   height: auto;
   margin-top: 194px;
 
   .howDoWeClean-container {
-    /* height: 795px; */
-    /* height: 800px; */
     margin: 0 auto;
     height: auto;
   }
