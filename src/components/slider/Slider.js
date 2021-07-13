@@ -97,14 +97,8 @@ const Slider = () => {
                       isVisible && (
                         <PlusButton
                           key={uuidv4()}
-                          xCoor={
-                            ((coord.width - itemBtn.xCoor) / itemBtn.xCoor) *
-                            coord.width
-                          }
-                          yCoor={
-                            ((coord.height - itemBtn.yCoor) / itemBtn.yCoor) *
-                            coord.height
-                          }
+                          xCoor={(itemBtn.xCoor / coord.width) * 100}
+                          yCoor={(itemBtn.yCoor / coord.height) * 100}
                           message={itemBtn.message}
                         />
                       )
