@@ -6,7 +6,6 @@ const CheckBoxStyles = styled.div`
   background: #fff;
   background: #fff;
   border-radius: 18px;
-  /* display: flex; */
   flex-direction: row;
   display: none;
   justify-content: ${({ homeOrOffiseChecked }) => {

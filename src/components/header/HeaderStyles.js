@@ -39,7 +39,6 @@ const HeaderStyles = styled.div`
     align-items: center;
   }
   .contact-information {
-    /* width: 250px; */
     height: 18px;
     margin-right: 32px;
     color: #404040;

@@ -4,11 +4,8 @@ const AdvantageStyles = styled.section`
   margin: 0 auto;
   .advantage-list {
     max-width: 768px;
-    /* padding-left: 4%; */
-    /* padding-right: 4%; */
     margin: 0 auto;
     margin-top: 73px;
-    /* height: 328px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -34,7 +31,6 @@ const ItemsCardStyles = styled.li`
   background-image: url(${({ img }) => img});
   background-repeat: no-repeat;
   background-position: bottom;
-  /* background-size: cover; */
   ::before {
     content: "${({ description }) => description}";
     width: 100%;
